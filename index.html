@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Effects of Climate Change Visualised</title>
+	<title>climate change</title>
 	<style>
 		body {
 			background: black;
 		}
-		h1, h4 {
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		img {
+			width: 80%;
+			height: 80%;
+		}
+		p {
+			margin-top: 0;
+			margin-bottom: 0;
+			text-align: center;
 			color: white;
+			font-size: 24px;
 			font-family: helvetica;
+		}
+		.text {
+			width: 85%;
+			margin: 0 auto;
+		}
+		#title {
+			height: 100%;
 		}
 	</style>
 </head>
 <body>
-	<h1>effects of climate change visualised</h1>
-	<h4>michael zhao</h4>
+	<div class="images" id="title">
+		<p><img src="title.png" id="title"/></p>
+	</div>
+	<div class="images">
+		<p><img src="affectmapcompress.png" /></p>
+		<p class="text">From the current trend of global temperatures, scientists predict that over the next couple of centuries, sea levels will rise by as much as 8 metres due to the melting of polar ice caps. Many of the largest cities in the world are situated on the coast, and will be severely affected by rising sea levels in the near future. <bn/>This visualisation shows where these cities are located around the world, and the size of each city.</p>
+	</div>
+	<div class="images">
+		<p><img src="foodshortage.png"/></p>
+		<p class="text">Food production and water sources will be influenced greatly by climate change. Greenhouse gases emitted into the atmosphere is trapping heat within the planet, thus increasing global temperatures. This is causing more water to evaporate, destroying water sources of people already living in water scarce areas. Another effect is that crop yield would be decreased as a result of less water. In fact, scientists estimate that for every decade of warming, global food production will decrease by 2%.</p>
+	</div>
+	<script>
+		var TIME1 = 1000, TIME2 = 5000;
+		var c = 0, index = 0;
+		document.body.onkeydown = function(e) {
+			if (e.keyCode == 32) {
+				if (c) {
+					document.title = "climate change";
+					c = 0;
+					if (index == 1) setTimeout(slide, TIME1);
+					else setTimeout(slide, TIME2);
+				} else {
+					document.title = "(p)";
+					c = 1;
+				}
+			}
+		}
+		slide();
+		function slide() {
+			if (c) return;
+			var x = document.getElementsByClassName("images");
+			for (var i = 0; i < x.length; i++) x[i].style.display = "none";
+			index++;
+			if (index > x.length) index = 1;
+			x[index - 1].style.display = "block";
+			if (index == 1) setTimeout(slide, TIME1);
+			else setTimeout(slide, TIME2);
+		}
+	</script>
+</script>
 </body>
 </html>
