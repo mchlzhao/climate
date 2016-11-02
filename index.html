@@ -46,17 +46,6 @@
 	<script>
 		var TIME1 = 10000, TIME2 = 30000;
 		var c = 0, index = 0;
-		document.body.onkeydown = function(e) {
-			if (e.keyCode == 32) {
-				if (c) {
-					c = 0;
-					if (index == 1) setTimeout(slide, TIME1);
-					else setTimeout(slide, TIME2);
-				} else {
-					c = 1;
-				}
-			}
-		}
 		slide();
 		function slide() {
 			if (c) return;
